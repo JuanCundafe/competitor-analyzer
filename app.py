@@ -10,7 +10,7 @@ import streamlit as st
 
 load_dotenv()
 
-client = OpenAI(api_key = "<API_KEY>")
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 st.set_page_config(page_title="Analizador de Competencia con IA", layout="centered")
 
 st.title("🕵️‍♂️ Analizador de Competencia con IA")
@@ -36,12 +36,14 @@ def analyze_with_gpt(content, own_desc=None):
 3. Oportunidades para diferenciarme
 4. Tono de comunicación"""
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.7,
-    )
-    return response.choices[0].message.content
+    response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": "..."},
+        {"role": "user", "content": "..."}
+    ]
+)
+    reply = response.choices[0].message.content
 
 if st.button("🔍 Analizar"):
     urls = [url.strip() for url in urls_input.splitlines() if url.strip()]
