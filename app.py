@@ -5,10 +5,11 @@ import trafilatura
 import requests
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
 
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 st.set_page_config(page_title="Analizador de Competencia con IA", layout="centered")
 
 st.title("🕵️‍♂️ Analizador de Competencia con IA")
