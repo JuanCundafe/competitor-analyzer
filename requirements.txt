@@ -1,4 +1,5 @@
 streamlit
-openai
 trafilatura
 python-dotenv
+openai>=1.2.0
+
