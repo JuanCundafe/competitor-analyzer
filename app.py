@@ -37,7 +37,7 @@ def analyze_with_gpt(content, own_desc=None):
 4. Tono de comunicación"""
 
     response = client.chat.completions.create(
-    model="gpt-4",
+    model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "..."},
         {"role": "user", "content": "..."}
