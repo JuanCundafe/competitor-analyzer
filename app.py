@@ -9,7 +9,7 @@ import streamlit as st
 
 load_dotenv()
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key = "<API_KEY>")
 st.set_page_config(page_title="Analizador de Competencia con IA", layout="centered")
 
 st.title("🕵️‍♂️ Analizador de Competencia con IA")
